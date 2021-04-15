@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiEndpoint: "https://europe-central2-text-classification-ml.cloudfunctions.net/classification",
   production: false
 };
 
