@@ -14,6 +14,6 @@ export class AboutComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigateByUrl("classification");
+    this.router.navigateByUrl("");
   }
 }
