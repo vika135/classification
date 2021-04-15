@@ -6,66 +6,66 @@
   >
     Что-то пошло не так
   </div>
-
-  <form [formGroup]="itemForm" novalidate class="item-form container" (ngSubmit)="submit()">
-    <div class="clf-header">Классификаторы: </div>
-    <div
-      class="form-floating mb-3"
-      formGroupName="clfListForm"
-    >
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox" value=""
-          id="sklearn_bayes"
-          formControlName="sklearn_bayes"
-          (change)="clfCheck($event.target, 'sklearn_bayes')"
-        >
-        <label class="form-check-label" for="sklearn_bayes">
-          Наивный байесовский классификатор
-        </label>
+  <div class="container">
+    <form [formGroup]="itemForm" novalidate class="item-form" (ngSubmit)="submit()">
+      <div class="clf-header">Классификаторы: </div>
+      <div
+        class="form-floating mb-3"
+        formGroupName="clfListForm"
+      >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox" value=""
+            id="sklearn_bayes"
+            formControlName="sklearn_bayes"
+            (change)="clfCheck($event.target, 'sklearn_bayes')"
+          >
+          <label class="form-check-label" for="sklearn_bayes">
+            Наивный байесовский классификатор
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="my_bayes"
+            formControlName="my_bayes"
+            (change)="clfCheck($event.target, 'my_bayes')"
+          >
+          <label class="form-check-label" for="my_bayes">
+            Наивный байесовский классификатор (нативный)
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="sklearn_knn"
+            formControlName="sklearn_knn"
+            (change)="clfCheck($event.target, 'sklearn_knn')"
+          >
+          <label class="form-check-label" for="sklearn_knn">
+            Метод ближайших соседей
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="my_knn"
+            formControlName="my_knn"
+            (change)="clfCheck($event.target, 'my_knn')"
+          >
+          <label class="form-check-label" for="my_knn">
+            Метод ближайших соседей (нативный)
+          </label>
+        </div>
       </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="my_bayes"
-          formControlName="my_bayes"
-          (change)="clfCheck($event.target, 'my_bayes')"
-        >
-        <label class="form-check-label" for="my_bayes">
-          Наивный байесовский классификатор (нативный)
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="sklearn_knn"
-          formControlName="sklearn_knn"
-          (change)="clfCheck($event.target, 'sklearn_knn')"
-        >
-        <label class="form-check-label" for="sklearn_knn">
-          Метод ближайших соседей
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="my_knn"
-          formControlName="my_knn"
-          (change)="clfCheck($event.target, 'my_knn')"
-        >
-        <label class="form-check-label" for="my_knn">
-          Метод ближайших соседей (нативный)
-        </label>
-      </div>
-    </div>
-    <div class="form-floating mb-3">
+      <div class="form-floating mb-3">
           <textarea
             name="text"
             placeholder="Текст..."
@@ -74,30 +74,58 @@
             formControlName="text"
           >
           </textarea>
-      <label for="text">Текст</label>
-    </div>
-    <div class="col-12">
-      <ng-container *ngIf="!loading">
-        <button
-          class="btn btn-primary"
-          type="submit"
-          [disabled]="itemForm.invalid || !atLeastOneClfChecked"
-        >
-          Классифицировать
-        </button>
-      </ng-container>
-      <ng-container *ngIf="loading">
-        <button
-          class="btn btn-primary"
-          type="button"
-          disabled
-        >
-          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          Обработка...
-        </button>
-      </ng-container>
-    </div>
-  </form>
+        <label for="text">Текст</label>
+      </div>
+      <div class="col-12">
+        <ng-container *ngIf="!loading">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="itemForm.invalid || !atLeastOneClfChecked"
+          >
+            Классифицировать
+          </button>
+        </ng-container>
+        <ng-container *ngIf="loading">
+          <button
+            class="btn btn-primary"
+            type="button"
+            disabled
+          >
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Обработка...
+          </button>
+        </ng-container>
+      </div>
+    </form>
+    <h5>Список доступных коллекций категорий: </h5>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Новости
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ul>
+          <span><b>Категории:</b></span>
+          <li>Бывший СССР</li>
+          <li>Дом</li>
+          <li>Из жизни</li>
+          <li>Интернет и СМИ</li>
+          <li>Культура</li>
+          <li>Мир</li>
+          <li>Наука и техника</li>
+          <li>Путешествия</li>
+          <li>Россия</li>
+          <li>Силовые структуры</li>
+          <li>Спорт</li>
+          <li>Ценности</li>
+          <li>Экономика</li>
+        </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
 </ng-container>
 
 <ng-container *ngIf="clfResult">

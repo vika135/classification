@@ -11,6 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ResultComponent } from "./component/result/result.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatTableModule} from "@angular/material/table";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -20,14 +21,15 @@ import {MatTableModule} from "@angular/material/table";
     AboutComponent,
     ResultComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatTableModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatExpansionModule
+    ],
   providers: [ClassificationService],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
     "build": "ng build",
     "prod build": "ng build --prod --base-href \"https://vika135.github.io/classification/\"",
     "deploy": "npx angular-cli-ghpages --dir=dist/classification",
