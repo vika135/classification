@@ -15,4 +15,8 @@ export class ClassificationService {
   public classifyText(request: ClassificationRequest): Observable<any> {
     return this.httpClient.post(environment.apiEndpoint, request);
   }
+
+  public classifyTextFile(request: ClassificationRequest): Observable<any> {
+    return this.httpClient.post(environment.apiEndpoint, request, {responseType: "text"});
+  }
 }

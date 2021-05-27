@@ -11,7 +11,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { ResultComponent } from "./component/result/result.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatTableModule} from "@angular/material/table";
-import {MatExpansionModule} from '@angular/material/expansion';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {LocalStorageService} from "./service/local-storage.service";
+import { HistoryComponent } from './component/history/history.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AppComponent,
     FormComponent,
     AboutComponent,
-    ResultComponent
+    ResultComponent,
+    HistoryComponent
   ],
     imports: [
         BrowserModule,
@@ -30,7 +33,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatTableModule,
         MatExpansionModule
     ],
-  providers: [ClassificationService],
+  providers: [ClassificationService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

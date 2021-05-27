@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import {Router} from '@angular/router';
+import {Router} from "@angular/router";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,5 +14,9 @@ export class AppComponent {
 
   infoIconClick(): void {
     this.router.navigateByUrl("about");
+  }
+
+  historyView(): void {
+    this.router.navigateByUrl("history");
   }
 }

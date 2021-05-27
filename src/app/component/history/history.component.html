@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="about-back-container">
+    <svg class="about-back-container-icon"
+         viewBox="0 0 32 32"
+         xmlns="http://www.w3.org/2000/svg"
+         width="32"
+         height="32"
+         fill="black"
+         (click)="goBack()"
+    >
+      <path  d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
+    c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
+    c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
+    </svg>
+    <span>Назад</span>
+  </div>
+  <p>Отображается 3 последних результата:</p>
+  <div *ngFor="let result of storage">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{result.text.slice(0,50)}}...
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{result.text}}</p>
+        <div *ngFor="let classifierResult of result.result">
+          <p>
+            Классификатор: {{CLASSIFIERS_ENUM[classifierResult.classifier]}}<br>
+            Категория: {{classifierResult.category}}<br>
+            Вероятность: {{classifierResult.confidence}}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+
+
+

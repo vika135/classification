@@ -1,4 +1,5 @@
 export interface ClassificationRequest {
   clf_list: string[];
-  text: string;
+  text?: string;
+  textArray?: string[];
 }
